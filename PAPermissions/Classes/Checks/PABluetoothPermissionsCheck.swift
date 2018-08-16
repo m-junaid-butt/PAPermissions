@@ -18,12 +18,6 @@ public class PABluetoothPermissionsCheck: PAPermissionsCheck, CBCentralManagerDe
 	public override func defaultAction() {
 		if #available(iOS 10, *) {
 			self.managerBLE = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
-		}else if #available(iOS 9, *) {
-			let url = URL(string: "prefs:root=Bluetooth")!
-			UIApplication.shared.openURL(url)
-		} else {
-			let url = URL(string: "prefs:root=General&path=Bluetooth")!
-			UIApplication.shared.openURL(url)
 		}
 	}
 	

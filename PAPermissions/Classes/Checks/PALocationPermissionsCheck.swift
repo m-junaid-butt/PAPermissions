@@ -34,14 +34,6 @@ public class PALocationPermissionsCheck: PAPermissionsCheck, CLLocationManagerDe
 				}
 				self.updateStatus()
 			}
-		}else{
-			if CLLocationManager.authorizationStatus() == .denied {
-				let settingsURL = URL(string: "prefs:root=LOCATION_SERVICES")
-				UIApplication.shared.openURL(settingsURL!)
-			}else{
-				self.status = .enabled
-				self.updateStatus()
-			}
 		}
 	}
 	
